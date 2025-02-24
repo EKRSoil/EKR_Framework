@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderizador mhChem + AsciiMath + DeepSeek</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MathJax v3 con soporte para mhChem y AsciiMath -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/mhchem']},
+            tex: {
+                packages: {'[+]': ['mhchem']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                asciimath: { delimiters: [['@', '@']] }
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Página de Pruebas para mhChem, AsciiMath y DeepSeek</h1>
+    </header>
+
+    <main>
+        <!-- Sección de Ejemplos Predefinidos -->
+        <section class="examples">
+            <h2>Ejemplos Predefinidos</h2>
+            <div class="chem-examples">
+                <h3>Fórmulas Químicas (mhChem)</h3>
+                <p>$\ce{H2O}$</p>
+                <p>$\ce{CO2 + C -> 2CO}$</p>
+            </div>
+            <div class="math-examples">
+                <h3>Ecuaciones Matemáticas (AsciiMath)</h3>
+                <p>@sum_(i=1)^n i^3=((n(n+1))/2)^2@</p>
+                <p>@sqrt(4) = 2@</p>
+            </div>
+        </section>
+
+        <!-- Sección de Carga de Imágenes -->
+        <section class="upload-section">
+            <h2>Cargar Ecuación desde Imagen</h2>
+            <input type="file" id="imageInput" accept="image/*">
+            <div id="equationResult"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sitio alojado gratuitamente en Netlify</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
